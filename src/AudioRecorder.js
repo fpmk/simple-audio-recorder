@@ -80,6 +80,7 @@ export default class AudioRecorder {
 
 		this.state = states.STOPPED;
 		this.audioContext = null;
+        this.sourceNode = null;
 		this.encoder = null;
 		this.encodedData = null;
 		this.stopPromiseResolve = null;
