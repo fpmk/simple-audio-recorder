@@ -90,11 +90,14 @@ export default class AudioRecorder {
 		this.stopPromiseResolve = null;
 		this.stopPromiseReject = null;
 		this.timer = new Timer();
+	}
+
+    initWorker() {
         const blob = new Blob([workerScript], { type: 'application/javascript' });
         const workerUrl = URL.createObjectURL(blob);
         AudioRecorder.preload(workerUrl);
-	}
-	
+    }
+
 	static isRecordingSupported() {
 		return AudioContext && navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
 	}
