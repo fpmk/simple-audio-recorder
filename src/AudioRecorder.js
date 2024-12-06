@@ -96,6 +96,7 @@ export default class AudioRecorder {
         const blob = new Blob([workerScript], { type: 'application/javascript' });
         const workerUrl = URL.createObjectURL(blob);
         AudioRecorder.preload(workerUrl);
+        return this;
     }
 
 	static isRecordingSupported() {
