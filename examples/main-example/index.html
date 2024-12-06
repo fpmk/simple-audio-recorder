@@ -64,7 +64,7 @@
 					
 					// Used for debugging only. Force using the older script processor instead of AudioWorklet.
 					forceScriptProcessor : document.getElementById("id_forceScriptProcessor").checked,
-				});
+				}).initWorker();
 				
 				recorder.ondataavailable = (data) => {
 					console.log("data", data.length);

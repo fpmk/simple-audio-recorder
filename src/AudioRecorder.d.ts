@@ -175,6 +175,8 @@ declare class AudioRecorder {
 
   getEncodingQueueSize(): number;
 
+  initWorker(): AudioRecorder;
+
   private useAudioWorklet(): boolean;
 
   private createAndStartEncoder(numberOfChannels: number): void;
