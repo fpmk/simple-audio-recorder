@@ -147,7 +147,7 @@ declare class AudioRecorder {
 
   static isRecordingSupported(): boolean;
 
-  static preload(workerUrl: string): void;
+  static initWorker(): void;
 
   readonly options: AudioRecorderOptions;
   readonly state: AudioRecorderState;
@@ -174,8 +174,6 @@ declare class AudioRecorder {
   setRecordingGain(gain: number): void;
 
   getEncodingQueueSize(): number;
-
-  initWorker(): AudioRecorder;
 
   private useAudioWorklet(): boolean;
 

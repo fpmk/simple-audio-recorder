@@ -92,22 +92,16 @@ export default class AudioRecorder {
 		this.timer = new Timer();
 	}
 
-    initWorker() {
+    static initWorker() {
         const blob = new Blob([workerScript], { type: 'application/javascript' });
-        const workerUrl = URL.createObjectURL(blob);
-        AudioRecorder.preload(workerUrl);
-        return this;
+        workerUrl = URL.createObjectURL(blob);
+        WorkerEncoder.preload(workerUrl);
     }
 
 	static isRecordingSupported() {
 		return AudioContext && navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
 	}
-	
-	static preload(_workerUrl) {
-		workerUrl = _workerUrl;
-		WorkerEncoder.preload(workerUrl);
-	}
-	
+
 	// Will we use AudioWorklet?
 	useAudioWorklet() {
 		return audioWorkletSupported && !this.options.forceScriptProcessor;
